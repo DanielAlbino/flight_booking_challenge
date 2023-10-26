@@ -13,3 +13,17 @@ export const getLocaltions = async () => {
   const filteredLocations = new Set(locations);
   return filteredLocations
 }
+
+export const dateFormater = (date: string) => {
+  return (
+    date.substring(0, 4) +
+    "/" +
+    date.substring(4, 6) +
+    "/" +
+    date.substring(6, 8)
+  );
+};
+
+export const hourFormater = (date: string) => {
+  return date.substring(0, 2) + ":" + date.substring(2, 4);
+};

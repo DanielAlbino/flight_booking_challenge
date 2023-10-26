@@ -1,4 +1,6 @@
 export interface flightProps {
+    date?: string,
+    hour?:string,
     FlightId: string,
     FromAirport: string,
     FromAirportName: string,
