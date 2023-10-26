@@ -23,9 +23,9 @@ const BookingView = () => {
   // filter the flights depending on the from and to.
   const onFilterChange = (values: any) => {
     setfilteredFlights(
+      // To many validations, must be improved.
       flights.filter(
-        (fligth: any) =>
-          (values.from == "" && values.to == "") ||
+        (fligth: any) => (values.from == "" && values.to == "") ||
           (values.to == "" &&
             fligth.FromAirportName.toLowerCase() ==
               values.from.toLowerCase()) ||
