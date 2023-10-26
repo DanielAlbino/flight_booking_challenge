@@ -14,10 +14,13 @@ const BookingView = () => {
     handleFlightInfo();
   }, []);
 
+  // Get the data and save it in a state
   const handleFlightInfo = async () => {
     const data = await getFlightsInfo();
     setFlighs(data);
   };
+
+  // filter the flights depending on the from and to.
   const onFilterChange = (values: any) => {
     setfilteredFlights(
       flights.filter(
@@ -34,13 +37,8 @@ const BookingView = () => {
     );
   };
 
+  // filter the flights depending on the dates
   const onDateChange = (values: any) => {
-    if (values.to) {
-      values.to.replace("-", "/");
-    }
-    if (values.from) {
-      values.from.replace("-", "/");
-    }
     setfilteredFlights(
       flights.filter(
         (fligth: any) =>

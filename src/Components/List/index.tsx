@@ -1,8 +1,6 @@
 import { dateFormater, hourFormater } from "../../utils/service";
 import { flightProps } from "../../utils/types";
 
-
-
 const CustomList = ({
   flight,
   setToggle,
@@ -12,12 +10,14 @@ const CustomList = ({
   setToggle: any;
   setselected: any;
 }) => {
+  // Format the hour and date
   const date = dateFormater(flight.ScheduledTimeFull.substring(0, 8));
   const hour = hourFormater(flight.ScheduledTimeFull.substring(8, 12));
 
+  // modal handler to set the modal, and add the formated hour and date to the data.
   const handleModal = () => {
     flight.date = date;
-    flight.hour = hour
+    flight.hour = hour;
     setToggle(true);
     setselected(flight);
   };

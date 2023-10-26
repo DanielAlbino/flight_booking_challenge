@@ -1,4 +1,5 @@
 
+// Get the data from the json file
 export const getFlightsInfo = async () => {
   const data = await fetch('json/data.json', {headers:{
     'Content-Type': 'application/json',
@@ -7,6 +8,7 @@ export const getFlightsInfo = async () => {
   return data;
 };
 
+// get the data from the json file, gets all the locations and filters by the correct number of locations that exists.
 export const getLocaltions = async () => {
   const info = await getFlightsInfo();
   const locations = info.map(({FromAirportName}:{FromAirportName: string})  => FromAirportName)
@@ -14,6 +16,8 @@ export const getLocaltions = async () => {
   return filteredLocations
 }
 
+
+//formats date to the correct required format
 export const dateFormater = (date: string) => {
   return (
     date.substring(0, 4) +
@@ -24,6 +28,7 @@ export const dateFormater = (date: string) => {
   );
 };
 
+//formats hour to the required format
 export const hourFormater = (date: string) => {
   return date.substring(0, 2) + ":" + date.substring(2, 4);
 };

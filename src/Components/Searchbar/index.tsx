@@ -21,6 +21,7 @@ const SearchBar = (props: SearchBarProps) => {
     to: "",
   });
 
+  // validade which option was selected on the from and to locations
   const handleSelectedOption = (event: any) => {
     if (event.target.value == "") return;
     const temp = selectedLocations;
@@ -34,11 +35,13 @@ const SearchBar = (props: SearchBarProps) => {
     setSelectedLocations(temp);
   };
 
+  // get the existent locations from the json file
   const onGetLocations = async () => {
     const locations: any = Array.from(await getLocaltions());
     setLocations(locations);
   };
 
+  // validate the dates
   const onDatesChange = (event: any) => {
     if (event.target.value == "") return;
     const temp = selectedDates;
@@ -75,8 +78,8 @@ const SearchBar = (props: SearchBarProps) => {
   return (
     <>
       <div
-        className="flex-inline shadow-md mx-5 mt-5"
-        style={{ backgroundColor: "#3b82f6", borderRadius: 10, color: "white" }}
+        className="flex-inline shadow-md  mt-5"
+        style={{ backgroundColor: "#3b82f6", borderRadius: 10, color: "white", width:'91vw', margin:'auto', marginLeft: 65 }}
       >
         <div className="mt-4 ml-5 mr-5 " style={{ display: "inline-flex" }}>
           <div className="ml-5">
