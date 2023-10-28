@@ -22,19 +22,8 @@ const BookingView = () => {
 
   // filter the flights depending on the from and to.
   const onFilterChange = (values: any) => {
-    setfilteredFlights(
-      // To many validations, must be improved.
-      flights.filter(
-        (fligth: any) => (values.from == "" && values.to == "") ||
-          (values.to == "" &&
-            fligth.FromAirportName.toLowerCase() ==
-              values.from.toLowerCase()) ||
-          (values.from == "" &&
-            fligth.ToAirportName.toLowerCase() == values.to.toLowerCase()) ||
-          (fligth.FromAirportName.toLowerCase() == values.from.toLowerCase() &&
-            fligth.ToAirportName.toLowerCase() == values.to.toLowerCase())
-      )
-    );
+    const data = flights.filter((fligth: any) => fligth.FromAirportName.includes(values.from) && fligth.ToAirportName.includes(values.to));
+    setfilteredFlights(data);
   };
 
   // filter the flights depending on the dates
